@@ -1,0 +1,33 @@
+/* Basic CSS Reset & Structure */
+/* 2号成员可以在这里添加所有样式 */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 2号成员需要添加的样式：
+   - Navigation bar styling
+   - Hero section styling
+   - Item cards (grid, hover effects, shadows)
+   - Buttons (primary, secondary, hover states)
+   - Form inputs
+   - Tables
+   - Footer
+   - Colors & typography
+   - Responsive design
+*/

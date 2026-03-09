@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details - BidMaster</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar (same as index.html) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">BidMaster</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#auctions" class="nav-link">Auctions</a></li>
+                <li><a href="create-listing.html" class="nav-link">Sell Item</a></li>
+                <li><a href="dashboard.html" class="nav-link">My Bids</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Item Detail Section -->
+    <section class="item-detail-section">
+        <div class="container">
+            <div class="detail-grid">
+
+                <!-- Left: Item Image -->
+                <div class="detail-image">
+                    <img id="itemImage" src="images/watch.jpg" alt="Item Image">
+                </div>
+
+                <!-- Right: Item Info & Bidding -->
+                <div class="detail-info">
+                    <h1 id="itemTitle" class="detail-title">Vintage Watch</h1>
+                    <p id="itemDescription" class="detail-description">
+                        A beautiful vintage timepiece from the 1960s.
+                        Excellent condition with original leather strap.
+                    </p>
+
+                    <!-- Pricing Info -->
+                    <div class="price-info">
+                        <div class="price-row">
+                            <span class="label">Starting Price:</span>
+                            <span id="startingPrice" class="value">$100</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="label">Current Highest Bid:</span>
+                            <span id="currentPrice" class="value price-highlight">$120</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="label">Time Remaining:</span>
+                            <span id="timeRemaining" class="value">01:30:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Bidding Form (3号成员会处理JS逻辑) -->
+                    <div class="bid-form">
+                        <h3>Place Your Bid</h3>
+                        <div class="form-group">
+                            <label for="bidInput">Your Bid Amount ($):</label>
+                            <input type="number" id="bidInput" class="input-field" placeholder="Enter bid amount" min="0" step="1">
+                        </div>
+                        <button id="placeBidBtn" class="btn btn-primary">Place Bid</button>
+                        <p id="bidMessage" class="bid-message"></p>
+                    </div>
+
+                    <!-- Bid History (Optional) -->
+                    <div class="bid-history">
+                        <h3>Bid History</h3>
+                        <ul id="bidHistoryList" class="history-list">
+                            <li class="history-item">
+                                <span class="bidder">User A</span>
+                                <span class="bid-amount">$120</span>
+                            </li>
+                            <li class="history-item">
+                                <span class="bidder">User B</span>
+                                <span class="bid-amount">$110</span>
+                            </li>
+                            <li class="history-item">
+                                <span class="bidder">User C</span>
+                                <span class="bid-amount">$105</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 BidMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/data.js"></script>
+    <script src="js/detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Listing - BidMaster</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">BidMaster</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#auctions" class="nav-link">Auctions</a></li>
+                <li><a href="create-listing.html" class="nav-link active">Sell Item</a></li>
+                <li><a href="dashboard.html" class="nav-link">My Bids</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Create Listing Section -->
+    <section class="create-listing-section">
+        <div class="container">
+            <h1 class="page-title">Create New Listing</h1>
+
+            <div class="form-container">
+                <!-- Listing Form (4号成员会处理验证和提交逻辑) -->
+                <form id="createListingForm" class="listing-form">
+
+                    <!-- Item Name -->
+                    <div class="form-group">
+                        <label for="itemName">Item Name *</label>
+                        <input type="text" id="itemName" name="itemName" class="input-field" placeholder="e.g., Vintage Watch" required>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select id="category" name="category" class="input-field" required>
+                            <option value="">Select a category</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="collectibles">Collectibles</option>
+                            <option value="art">Art</option>
+                            <option value="sports">Sports</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Starting Price -->
+                    <div class="form-group">
+                        <label for="startingPrice">Starting Price ($) *</label>
+                        <input type="number" id="startingPrice" name="startingPrice" class="input-field" placeholder="e.g., 100" min="1" step="1" required>
+                    </div>
+
+                    <!-- Auction End Time -->
+                    <div class="form-group">
+                        <label for="endTime">Auction Duration *</label>
+                        <select id="endTime" name="endTime" class="input-field" required>
+                            <option value="">Select duration</option>
+                            <option value="1">1 hour</option>
+                            <option value="3">3 hours</option>
+                            <option value="6">6 hours</option>
+                            <option value="12">12 hours</option>
+                            <option value="24">24 hours</option>
+                        </select>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="description">Description *</label>
+                        <textarea id="description" name="description" class="input-field textarea" rows="5" placeholder="Describe your item..." required></textarea>
+                    </div>
+
+                    <!-- Image Upload (可以是假按钮) -->
+                    <div class="form-group">
+                        <label for="imageUpload">Upload Image</label>
+                        <input type="file" id="imageUpload" name="imageUpload" class="input-field" accept="image/*">
+                        <p class="form-hint">Optional: Add an image to attract more bidders</p>
+                    </div>
+
+                    <!-- Submit Button (4号成员会处理提交逻辑) -->
+                    <div class="form-actions">
+                        <button type="submit" id="submitListingBtn" class="btn btn-primary">Submit Listing</button>
+                        <a href="index.html" class="btn btn-secondary">Cancel</a>
+                    </div>
+
+                    <!-- Message Area for feedback -->
+                    <p id="formMessage" class="form-message"></p>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 BidMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/data.js"></script>
+    <script src="js/create.js"></script>
+</body>
+</html>

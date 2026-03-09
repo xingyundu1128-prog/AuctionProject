@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BidMaster - Online Auction Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar (共用) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">BidMaster</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="index.html#auctions" class="nav-link">Auctions</a></li>
+                <li><a href="create-listing.html" class="nav-link">Sell Item</a></li>
+                <li><a href="dashboard.html" class="nav-link">My Bids</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section / Banner -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <h1 class="hero-title">Welcome to BidMaster</h1>
+            <p class="hero-subtitle">Find great deals and place your bids</p>
+            <a href="#auctions" class="btn btn-primary">Explore Auctions</a>
+        </div>
+    </section>
+
+    <!-- Auction Items Section -->
+    <section id="auctions" class="auctions-section">
+        <div class="container">
+            <h2 class="section-title">Featured Auctions</h2>
+
+            <!-- Items Grid (JS will populate this, but provide static examples) -->
+            <div class="items-grid" id="itemsGrid">
+
+                <!-- Item Card 1 -->
+                <div class="item-card" data-item-id="1">
+                    <div class="item-image">
+                        <img src="images/watch.jpg" alt="Vintage Watch">
+                    </div>
+                    <div class="item-info">
+                        <h3 class="item-title">Vintage Watch</h3>
+                        <p class="item-price">Current Bid: <span class="price">$120</span></p>
+                        <p class="item-time">Time Left: <span class="time-left">2h 30m</span></p>
+                        <a href="item-detail.html?id=1" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Item Card 2 -->
+                <div class="item-card" data-item-id="2">
+                    <div class="item-image">
+                        <img src="images/keyboard.jpg" alt="Gaming Keyboard">
+                    </div>
+                    <div class="item-info">
+                        <h3 class="item-title">Gaming Keyboard</h3>
+                        <p class="item-price">Current Bid: <span class="price">$80</span></p>
+                        <p class="item-time">Time Left: <span class="time-left">1h 45m</span></p>
+                        <a href="item-detail.html?id=2" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Item Card 3 -->
+                <div class="item-card" data-item-id="3">
+                    <div class="item-image">
+                        <img src="images/bike.jpg" alt="Mountain Bike">
+                    </div>
+                    <div class="item-info">
+                        <h3 class="item-title">Mountain Bike</h3>
+                        <p class="item-price">Current Bid: <span class="price">$300</span></p>
+                        <p class="item-time">Time Left: <span class="time-left">3h 15m</span></p>
+                        <a href="item-detail.html?id=3" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Item Card 4 -->
+                <div class="item-card" data-item-id="4">
+                    <div class="item-image">
+                        <img src="images/painting.jpg" alt="Art Painting">
+                    </div>
+                    <div class="item-info">
+                        <h3 class="item-title">Art Painting</h3>
+                        <p class="item-price">Current Bid: <span class="price">$450</span></p>
+                        <p class="item-time">Time Left: <span class="time-left">5h 00m</span></p>
+                        <a href="item-detail.html?id=4" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 BidMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
