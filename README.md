@@ -2,6 +2,29 @@
 
 A high school Computer Science project - collaborative web development.
 
+## 🎭 Multi-User Demo Mode (NEW!)
+
+**Want to demo with 3 people on 3 computers?**
+
+1. **Start server:** `./start-server.sh` or `python3 server.py`
+2. **Connect 3 computers** to the same Wi-Fi
+3. **Each person uses their own URL:**
+   - Person 1 (Andy): `http://SERVER_IP:8000/?user=1001`
+   - Person 2 (Bob): `http://SERVER_IP:8000/?user=1002`
+   - Person 3 (Cathy): `http://SERVER_IP:8000/?user=1003`
+4. **Start bidding!** All screens update in real-time
+5. **Look for the green badge** 👤 Andy/Bob/Cathy at top-right
+
+**Quick test (single computer):**
+```bash
+./test-users.sh
+```
+Opens 3 browser windows with different users.
+
+See **[DEMO-GUIDE.md](DEMO-GUIDE.md)** for detailed instructions.
+
+---
+
 ## Team Division
 
 ### Member 1 (HTML Structure) ✅ COMPLETED
