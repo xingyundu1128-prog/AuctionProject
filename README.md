@@ -23,6 +23,11 @@ Opens 3 browser windows with different users.
 
 See **[DEMO-GUIDE.md](DEMO-GUIDE.md)** for detailed instructions.
 
+**Technical Details:**
+- User IDs (1001, 1002, 1003) stored in data
+- Display names (Andy, Bob, Cathy) shown to users
+- See **[USER-ID-SYSTEM.md](USER-ID-SYSTEM.md)** for architecture details
+
 ---
 
 ## Team Division

@@ -22,7 +22,8 @@ const USER_MAP = {
     '1003': 'Cathy'
 };
 
-let currentUser = null;
+let currentUser = null; // Display name (Andy/Bob/Cathy)
+let currentUserId = null; // User ID (1001/1002/1003)
 
 // Get item ID from URL parameter
 function getItemIdFromURL() {
@@ -36,16 +37,24 @@ function getCurrentUser() {
     const userId = urlParams.get('user');
 
     if (userId && USER_MAP[userId]) {
-        return USER_MAP[userId];
+        currentUserId = userId;
+        currentUser = USER_MAP[userId];
+        return currentUser;
     }
 
     // If no user in URL, try to get from localStorage
+    const storedUserId = localStorage.getItem('currentUserId');
     const storedUser = localStorage.getItem('currentUser');
-    if (storedUser) {
+
+    if (storedUserId && storedUser) {
+        currentUserId = storedUserId;
+        currentUser = storedUser;
         return storedUser;
     }
 
     // Fallback: prompt for name
+    currentUserId = null;
+    currentUser = null;
     return null;
 }
 
@@ -110,10 +119,13 @@ function updatePageContent() {
         const historyList = document.getElementById('bidHistoryList');
         historyList.innerHTML = '';
         currentItem.bidHistory.forEach(bid => {
+            // Map user ID to display name
+            const displayName = USER_MAP[bid.bidder] || bid.bidder;
+
             const li = document.createElement('li');
             li.className = 'history-item';
             li.innerHTML = `
-                <span class="bidder">${bid.bidder}</span>
+                <span class="bidder">${displayName}</span>
                 <span class="bid-amount">$${bid.amount}</span>
             `;
             historyList.appendChild(li);
@@ -140,16 +152,18 @@ async function placeBid() {
         return;
     }
 
-    // Get bidder name from current user or prompt
-    let bidderName = currentUser;
-    if (!bidderName) {
-        bidderName = prompt('Enter your name:');
+    // Get bidder ID from current user or prompt
+    let bidderId = currentUserId;
+    if (!bidderId) {
+        const bidderName = prompt('Enter your name:');
         if (bidderName) {
+            // Store name-based user (fallback for manual entry)
             localStorage.setItem('currentUser', bidderName);
             currentUser = bidderName;
+            bidderId = bidderName; // Use name as ID if no user ID
             displayCurrentUser();
         } else {
-            bidderName = 'Anonymous';
+            bidderId = 'Anonymous';
         }
     }
 
@@ -163,7 +177,7 @@ async function placeBid() {
                 body: JSON.stringify({
                     itemId: currentItem.id,
                     amount: bidAmount,
-                    bidder: bidderName
+                    bidder: bidderId  // Send user ID instead of name
                 })
             });
 
@@ -188,7 +202,7 @@ async function placeBid() {
         // Local mode (no server)
         currentItem.currentPrice = bidAmount;
         currentItem.bidHistory.unshift({
-            bidder: bidderName,
+            bidder: bidderId,  // Store user ID
             amount: bidAmount,
             time: new Date().toLocaleString()
         });

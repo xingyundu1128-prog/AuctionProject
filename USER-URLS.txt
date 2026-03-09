@@ -1,0 +1,44 @@
+🎭 BidMaster - User Access URLs
+==================================
+
+After starting the server, each person should use their own URL:
+
+Person 1 - Andy:
+http://YOUR_SERVER_IP:8000/?user=1001
+
+Person 2 - Bob:
+http://YOUR_SERVER_IP:8000/?user=1002
+
+Person 3 - Cathy:
+http://YOUR_SERVER_IP:8000/?user=1003
+
+
+Local Testing (single computer):
+---------------------------------
+Andy:  http://localhost:8000/?user=1001
+Bob:   http://localhost:8000/?user=1002
+Cathy: http://localhost:8000/?user=1003
+
+
+What You'll See:
+----------------
+✅ Green badge "👤 Andy" (or Bob/Cathy) at top-right
+✅ Your name automatically used when you bid
+✅ No need to enter your name every time
+✅ Easy to see who placed which bid
+
+
+Quick Test:
+-----------
+1. Start server: ./start-server.sh
+2. Open 3 browser tabs/windows
+3. Use the 3 URLs above
+4. Each tab shows a different user name
+5. Place bids - they'll show with your name!
+
+
+Notes:
+------
+- User names are defined in js/detail.js and js/main.js
+- To change names, edit USER_MAP in those files
+- User parameter persists when clicking between pages

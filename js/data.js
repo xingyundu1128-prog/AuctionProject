@@ -45,8 +45,9 @@ const items = [
 ];
 
 // Bid history (sample data for dashboard)
+// Note: In real implementation, this would be filtered by current user
 const bidHistory = [
-    { itemId: 1, itemName: "Vintage Watch", yourBid: 120, currentBid: 135, status: "outbid" },
-    { itemId: 3, itemName: "Mountain Bike", yourBid: 300, currentBid: 300, status: "winning" },
-    { itemId: 4, itemName: "Art Painting", yourBid: 90, currentBid: null, status: "won" }
+    { itemId: 1, itemName: "Vintage Watch", userId: "1001", yourBid: 120, currentBid: 135, status: "outbid" },
+    { itemId: 3, itemName: "Mountain Bike", userId: "1001", yourBid: 300, currentBid: 300, status: "winning" },
+    { itemId: 4, itemName: "Art Painting", userId: "1001", yourBid: 90, currentBid: null, status: "won" }
 ];
