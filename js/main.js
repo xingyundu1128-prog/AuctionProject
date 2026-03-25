@@ -6,11 +6,25 @@
 
 console.log("Homepage loaded");
 
-const USE_SERVER = true; // Set to false to use local data.js only
-const API_URL = '/api';
 const REFRESH_INTERVAL = 5000; // 5 seconds for homepage
 
 let itemsData = [];
+
+// LocalStorage helpers
+function getItemsFromStorage() {
+    const storedItems = localStorage.getItem('auctionItems');
+    if (storedItems) {
+        return JSON.parse(storedItems);
+    }
+
+    // If no items in storage, use default items from data.js
+    if (typeof items !== 'undefined' && Array.isArray(items)) {
+        localStorage.setItem('auctionItems', JSON.stringify(items));
+        return items;
+    }
+
+    return [];
+}
 let refreshTimer = null;
 
 // User mapping (same as detail.js)
@@ -55,6 +69,30 @@ function displayCurrentUser() {
     }
 }
 
+// Update navigation links to preserve user parameter
+function updateNavLinksWithUser() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('user');
+    if (!userId) return;
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        // Skip if already has user parameter
+        if (href.includes('user=')) return;
+
+        // Add user parameter
+        if (href.includes('?') || href.includes('#')) {
+            const separator = href.includes('?') ? '&' : '?';
+            link.setAttribute('href', href + separator + 'user=' + userId);
+        } else {
+            link.setAttribute('href', href + '?user=' + userId);
+        }
+    });
+}
+
 // Update all links to preserve user parameter
 function updateLinksWithUser() {
     if (!currentUser) return;
@@ -66,6 +104,10 @@ function updateLinksWithUser() {
     // Update all item detail links
     document.querySelectorAll('a[href^="item-detail.html"]').forEach(link => {
         const href = link.getAttribute('href');
+
+        // Skip if link already has user parameter
+        if (href.includes('user=')) return;
+
         if (href.includes('?')) {
             link.setAttribute('href', href + '&user=' + userId);
         } else {
@@ -74,20 +116,22 @@ function updateLinksWithUser() {
     });
 }
 
-// Load items from server
-async function loadItems() {
-    if (USE_SERVER) {
-        try {
-            const response = await fetch(`${API_URL}/items`);
-            const data = await response.json();
-            itemsData = data.items;
-        } catch (error) {
-            console.log('Server not available, using local data');
-            itemsData = items; // Fallback to local data.js
+// Load items from localStorage
+function loadItems() {
+    itemsData = getItemsFromStorage();
+
+    // Update timeLeft for all items
+    const now = Date.now();
+    itemsData = itemsData.map(item => {
+        if (item.timeLeft > 0 && item.createdAt) {
+            const elapsed = Math.floor((now - item.createdAt) / 1000);
+            item.timeLeft = Math.max(0, item.timeLeft - elapsed);
         }
-    } else {
-        itemsData = items;
-    }
+        return item;
+    });
+
+    // Save updated items back to storage
+    localStorage.setItem('auctionItems', JSON.stringify(itemsData));
 
     updateItemCards();
     updateLinksWithUser();
@@ -131,16 +175,15 @@ function updateItemCards() {
 
 // Auto-refresh items
 function startAutoRefresh() {
-    if (USE_SERVER) {
-        refreshTimer = setInterval(() => {
-            loadItems();
-        }, REFRESH_INTERVAL);
-    }
+    refreshTimer = setInterval(() => {
+        loadItems();
+    }, REFRESH_INTERVAL);
 }
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     displayCurrentUser();
+    updateNavLinksWithUser();
     loadItems();
     startAutoRefresh();
 });

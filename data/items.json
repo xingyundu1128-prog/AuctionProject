@@ -1,0 +1,83 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Vintage Watch",
+      "description": "A beautiful vintage timepiece from the 1960s",
+      "image": "images/watch.jpg",
+      "startingPrice": 100,
+      "currentPrice": 120,
+      "timeLeft": 7200,
+      "category": "collectibles",
+      "seller": "1002",
+      "bidHistory": [
+        {
+          "bidder": "1001",
+          "amount": 120,
+          "time": "2024-03-13T10:30:00.000Z"
+        }
+      ],
+      "createdAt": "2024-03-13T08:00:00.000Z",
+      "lastUpdate": 1710329400000
+    },
+    {
+      "id": 2,
+      "name": "Gaming Keyboard",
+      "description": "Mechanical keyboard with RGB lighting",
+      "image": "images/keyboard.jpg",
+      "startingPrice": 50,
+      "currentPrice": 50,
+      "timeLeft": 10800,
+      "category": "electronics",
+      "seller": "1001",
+      "bidHistory": [],
+      "createdAt": "2024-03-13T09:00:00.000Z",
+      "lastUpdate": 1710333000000
+    },
+    {
+      "id": 3,
+      "name": "Oil Painting",
+      "description": "Original landscape oil painting",
+      "image": "images/painting.jpg",
+      "startingPrice": 200,
+      "currentPrice": 250,
+      "timeLeft": 14400,
+      "category": "art",
+      "seller": "1003",
+      "bidHistory": [
+        {
+          "bidder": "1002",
+          "amount": 250,
+          "time": "2024-03-13T11:00:00.000Z"
+        },
+        {
+          "bidder": "1001",
+          "amount": 220,
+          "time": "2024-03-13T10:45:00.000Z"
+        }
+      ],
+      "createdAt": "2024-03-13T07:00:00.000Z",
+      "lastUpdate": 1710325800000
+    },
+    {
+      "id": 4,
+      "name": "Mountain Bike",
+      "description": "High-quality mountain bike, excellent condition",
+      "image": "images/bike.jpg",
+      "startingPrice": 300,
+      "currentPrice": 350,
+      "timeLeft": 18000,
+      "category": "sports",
+      "seller": "1001",
+      "bidHistory": [
+        {
+          "bidder": "1003",
+          "amount": 350,
+          "time": "2024-03-13T11:15:00.000Z"
+        }
+      ],
+      "createdAt": "2024-03-13T06:00:00.000Z",
+      "lastUpdate": 1710322200000
+    }
+  ]
+}

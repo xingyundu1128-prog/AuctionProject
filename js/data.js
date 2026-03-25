@@ -7,10 +7,15 @@ const items = [
         name: "Vintage Watch",
         description: "A beautiful vintage timepiece from the 1960s. Excellent condition with original leather strap.",
         startingPrice: 100,
-        currentPrice: 120,
+        currentPrice: 150,
         timeLeft: 5400, // seconds
         image: "images/watch.jpg",
-        category: "Collectibles"
+        category: "Collectibles",
+        bidHistory: [
+            { bidder: "1003", amount: 150, time: "2026-03-24, 10:30:00 AM" },
+            { bidder: "1002", amount: 135, time: "2026-03-24, 10:15:00 AM" },
+            { bidder: "1003", amount: 120, time: "2026-03-24, 10:00:00 AM" }
+        ]
     },
     {
         id: 2,
@@ -20,7 +25,11 @@ const items = [
         currentPrice: 80,
         timeLeft: 3600,
         image: "images/keyboard.jpg",
-        category: "Electronics"
+        category: "Electronics",
+        bidHistory: [
+            { bidder: "1002", amount: 80, time: "2026-03-24, 09:45:00 AM" },
+            { bidder: "1001", amount: 75, time: "2026-03-24, 09:30:00 AM" }
+        ]
     },
     {
         id: 3,
@@ -30,7 +39,11 @@ const items = [
         currentPrice: 300,
         timeLeft: 7200,
         image: "images/bike.jpg",
-        category: "Sports"
+        category: "Sports",
+        bidHistory: [
+            { bidder: "1001", amount: 300, time: "2026-03-24, 11:00:00 AM" },
+            { bidder: "1003", amount: 280, time: "2026-03-24, 10:45:00 AM" }
+        ]
     },
     {
         id: 4,
@@ -40,7 +53,11 @@ const items = [
         currentPrice: 450,
         timeLeft: 10800,
         image: "images/painting.jpg",
-        category: "Art"
+        category: "Art",
+        bidHistory: [
+            { bidder: "1002", amount: 450, time: "2026-03-24, 11:30:00 AM" },
+            { bidder: "1001", amount: 420, time: "2026-03-24, 11:15:00 AM" }
+        ]
     }
 ];
 
